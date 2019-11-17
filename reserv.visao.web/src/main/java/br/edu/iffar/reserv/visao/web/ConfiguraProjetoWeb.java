@@ -1,10 +1,9 @@
 package br.edu.iffar.reserv.visao.web;
+import br.com.caelum.vraptor.events.VRaptorInitialized;
+import br.edu.iffar.reserv.dao.mongodb.MorphiaDAO;
+import br.edu.iffar.reserv.modelo.core.dao.FabricaDAO;
 
 import javax.enterprise.event.Observes;
-
-import br.com.caelum.vraptor.events.VRaptorInitialized;
-import br.edu.iffar.reserv.dao.hibernate.HibernateDAO;
-import br.edu.iffar.reserv.modelo.core.dao.FabricaDAO;
 
 /**
  * <p>
@@ -21,8 +20,8 @@ public class ConfiguraProjetoWeb {
 	public void inicializa(@Observes VRaptorInitialized init) {
 		System.out.println("Inicializando app web!");
 		// define o modelo de persistencia
-		FabricaDAO.defineModelo(new HibernateDAO());
-		System.out.println("Modelo de persistencia defindido!");
+		FabricaDAO.defineModelo(new MorphiaDAO());
+		System.out.println("Modelo de persistência definido!");
 	}
 	
 }

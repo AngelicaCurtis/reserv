@@ -1,12 +1,8 @@
 package br.edu.iffar.reserv.modelo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import br.edu.iffar.reserv.modelo.core.IEntidade;
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
 
 /**
  * <p>
@@ -21,18 +17,16 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 public class Item implements IEntidade {
 	// chave pri maria
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idItem;
+	private long id;
 	// descreve o item do quarto
-	@Column(length=50, nullable=false)
 	private String descricao;
 
-	public long getIdItem() {
-		return idItem;
+	public long getId() {
+		return id;
 	}
 
-	public void setIdItem(long idItem) {
-		this.idItem = idItem;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getDescricao() {
@@ -44,11 +38,11 @@ public class Item implements IEntidade {
 	}
 
 	public long getID() {
-		return getIdItem();
+		return getId();
 	}
 
 	public void setID(long chave) {
-		setIdItem(chave);
+		setId(chave);
 	}
 
 }

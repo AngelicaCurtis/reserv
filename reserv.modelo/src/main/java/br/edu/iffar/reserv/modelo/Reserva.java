@@ -2,17 +2,11 @@ package br.edu.iffar.reserv.modelo;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 import br.edu.iffar.reserv.modelo.core.IEntidade;
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
+import dev.morphia.annotations.Reference;
 
 /**
  * <p>
@@ -25,45 +19,33 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 @Entity
 public class Reserva implements IEntidade {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long idReserva;
+	private long id;
 	// data da realizacao da reserva
-	@Column(nullable = false)
-	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataReserva;
 	// data prevista para entrada no quarto
-	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date dataEntrada;
 	// data prevista para saida do quarto
-	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
 	private Date dataSaida;
 	// quantidade de pessoas que se hospedarão
-	@Column(nullable = false)
 	private int quantidadeHospede;
 	// define o quarto
-	@ManyToOne
-	@JoinColumn(name = "idQuarto", nullable = false)
+	@Reference
 	private Quarto quarto;
 	// define o cliente que esta reservando
-	@ManyToOne
-	@JoinColumn(name = "idCliente", nullable = false)
+	@Reference
 	private Cliente cliente;
 	// funcionario que verifica a reserva
-	@ManyToOne
-	@JoinColumn(name = "idFuncionario")
+	@Reference
 	private Funcionario funcionario;
 	// valor da reserva
-	@Column(nullable = false)
 	private double valor;
 
-	public long getIdReserva() {
-		return idReserva;
+	public long getId() {
+		return id;
 	}
 
-	public void setIdReserva(long idReserva) {
-		this.idReserva = idReserva;
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public Date getDataReserva() {
@@ -131,11 +113,11 @@ public class Reserva implements IEntidade {
 	}
 
 	public long getID() {
-		return getIdReserva();
+		return getId();
 	}
 
 	public void setID(long chave) {
-		setIdReserva(chave);
+		setId(chave);
 	}
 
 }

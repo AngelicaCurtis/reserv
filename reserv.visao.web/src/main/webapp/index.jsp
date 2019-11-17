@@ -1,7 +1,9 @@
 
 <html>
  <head>
+     <meta charset="utf-8">
    <title>Reserv web</title>
+
    <link rel="stylesheet"
     href="assets/css/materialize.min.css" >
     <script  src="assets/js/materialize.min.js" ></script>

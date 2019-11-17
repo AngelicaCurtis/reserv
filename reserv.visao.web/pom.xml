@@ -43,7 +43,7 @@
 		</dependency>
 		<dependency>
 			<groupId>br.edu.iffar</groupId>
-			<artifactId>reserv.dao.hibernate</artifactId>
+			<artifactId>reserv.dao.mongodb</artifactId>
 			<version>1.0</version>
 		</dependency>
 		<dependency>

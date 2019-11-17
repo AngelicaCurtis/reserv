@@ -1,12 +1,9 @@
 package br.edu.iffar.reserv.modelo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 import br.edu.iffar.reserv.modelo.core.IEntidade;
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
+
 
 /**
  * <p>
@@ -19,16 +16,12 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 @Entity
 public class Quarto implements IEntidade {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idQuarto;
 	// quantidade de pessoas que o quarto comporta
-	@Column(nullable=false)
 	private int capacidade;
 	// agrupa os quartos, ex. standard, luxo, suíte etc
-	@Column(length=20, nullable=false)
 	private String tipoQuarto;
 	// tamanho em mt quadrados
-	@Column
 	private double tamanho;
 
 	public long getIdQuarto() {
@@ -68,7 +61,7 @@ public class Quarto implements IEntidade {
 	}
 
 	public void setID(long chave) {
-		setIdQuarto(chave);		
+		setIdQuarto(chave);
 	}
 
 }

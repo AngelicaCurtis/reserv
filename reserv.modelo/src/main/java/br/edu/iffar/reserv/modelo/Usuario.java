@@ -1,14 +1,10 @@
 package br.edu.iffar.reserv.modelo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
+
 
 import br.edu.iffar.reserv.modelo.core.IEntidade;
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
 
 /**
  * <p>
@@ -21,25 +17,19 @@ import br.edu.iffar.reserv.modelo.core.IEntidade;
 * @since Aug 19, 2019 8:22:31 PM
 */
 @Entity
-@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Usuario implements IEntidade {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private long idUsuario;
-	@Column(length=50, nullable=false)
+	private long id;
 	private String nome;
-	@Column(length=15)
 	private String telefone;
-	@Column(length=100, nullable=false)
 	private String email;
-	@Column(length=150, nullable=false)
 	private String senha;
 	
-	public long getIdUsuario() {
-		return idUsuario;
+	public long getId() {
+		return id;
 	}
-	public void setIdUsuario(long idUsuario) {
-		this.idUsuario = idUsuario;
+	public void setId(long id) {
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;
@@ -67,9 +57,9 @@ public abstract class Usuario implements IEntidade {
 	}
 	
 	public long getID() {
-		return getIdUsuario();
+		return getId();
 	}
 	public void setID(long chave) {
-		setIdUsuario(chave);
+		setId(chave);
 	}
 }
